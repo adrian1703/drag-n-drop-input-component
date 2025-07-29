@@ -1,7 +1,8 @@
-import type {TreeNode} from "./TreeNode.ts";
+import {TreeNode} from "./TreeNode.ts";
 
 function Test() {
-    const root: TreeNode = TreeNode.createBinaryTree(
+    let root: TreeNode;
+    root = TreeNode.createBinaryTree(
         Array.from({length: 13}, (_, index) => (index + 1).toString())
     );
 
