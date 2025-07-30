@@ -1,4 +1,6 @@
 import { TreeNode } from './TreeNode';
+import log from "loglevel";
+log.setLevel("debug");
 
 describe('TreeNode', () => {
     it('creates a TreeNode with the given title', () => {
@@ -26,7 +28,7 @@ describe('TreeNode', () => {
         expect(c.title).toBe('C');
         // Check second level
         expect(b.children[0].title).toBe('D');
-        expect(c.children[0].title).toBe('E');
+        expect(b.children[1].title).toBe('E');
     });
 
     it('returns "unnamed" for empty input', () => {
