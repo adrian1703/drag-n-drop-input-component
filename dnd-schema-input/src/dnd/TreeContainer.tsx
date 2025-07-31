@@ -2,7 +2,7 @@ import log from "loglevel";
 import {TreeNode} from "./TreeNode.ts";
 import {useEffect, useState} from "react";
 import {TreeRendererComponent} from "./TreeRendererComponent.tsx";
-
+import styles from "./TreeContainer.module.css";
 
 export function TreeContainer() {
 
@@ -29,7 +29,9 @@ export function TreeContainer() {
             <h1>hello</h1>
             <button onClick={() => handleButtonClick(true)}>Increment </button>
             <button onClick={() => handleButtonClick(false)}>Decrement</button>
-            {rootNode && <TreeRendererComponent node={rootNode}/>}
+            <div className={styles.treeContainer}>
+                {rootNode && <TreeRendererComponent node={rootNode}/>}
+            </div>
         </>
     )
 }

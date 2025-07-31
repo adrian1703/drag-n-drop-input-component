@@ -1,0 +1,16 @@
+.treeContainer {
+    margin: 0.5rem 0;
+    font-family: monospace;
+    align-self: flex-start;
+    text-align: left;
+
+}
+
+.treeContainer ul {
+    list-style-type: circle;
+    padding-left: 1.5rem;
+}
+
+.treeContainer li {
+    margin: 0.25rem 0;
+}
