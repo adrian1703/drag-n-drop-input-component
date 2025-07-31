@@ -1,11 +1,13 @@
 import log from "loglevel";
 
 export class TreeNode {
-    title: string;
+    id: string;
+    label: string;
     children: TreeNode[];
 
-    constructor(title: string) {
-        this.title    = title;
+    constructor(id: string, label?: string) {
+        this.id       = id;
+        this.label    = label ? label : id;
         this.children = [];
     }
 
@@ -13,16 +15,16 @@ export class TreeNode {
         this.children.push(child);
     }
 
-    static createBinaryTree(titles: string[]): TreeNode {
-        if (titles.length < 1) {
+    static createBinaryTree(ids: string[]): TreeNode {
+        if (ids.length < 1) {
             return new TreeNode("unnamed");
         }
-        const result: TreeNode      = new TreeNode(titles[0]);
+        const result: TreeNode      = new TreeNode(ids[0]);
         const parents: TreeNode[]   = [result];
         const countChildren: number = 2;
         let index: number           = 0;
 
-        while (index < titles.length) {
+        while (index < ids.length) {
             log.debug("parents:", parents);
             const parent: TreeNode = parents.shift() ?? (() => {
                 throw new Error("No parent node available!")
@@ -30,11 +32,11 @@ export class TreeNode {
             log.debug("parent:", parent);
             for (let i = 0; i < countChildren; i++) {
                 index++;
-                if (!(index < titles.length)) {
-                    log.debug("Exiting loop: index:", index, "titles:", titles.length);
+                if (!(index < ids.length)) {
+                    log.debug("Exiting loop: index:", index, "ids:", ids.length);
                     break
                 }
-                const child: TreeNode = new TreeNode(titles[index]);
+                const child: TreeNode = new TreeNode(ids[index]);
                 log.debug("child:", child);
                 parent.addChild(child);
                 parents.push(child);
