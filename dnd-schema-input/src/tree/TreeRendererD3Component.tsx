@@ -6,10 +6,11 @@ type NodeDatum = {
     treeNode: TreeNode;
     children?: NodeDatum[];
 };
+
 //adapter
 function treeNodeToNodeDatum(node: TreeNode): NodeDatum {
     return {
-        name: node.label,
+        name    : node.label,
         treeNode: node,
         children: node.children.length
                   ? node.children.map(child => treeNodeToNodeDatum(child))
@@ -17,24 +18,21 @@ function treeNodeToNodeDatum(node: TreeNode): NodeDatum {
     };
 }
 
-export function TreeRendererD3Component(props: Props){
+export function TreeRendererD3Component(props: Props) {
     return (
-        <div style={{
-            height: "40vh",
-            width: "80vw",
-        }}>
+        <div className={"treeContainer"} style={{width: '100%', height: '100%', minHeight: 400, minWidth: 400}}>
             <Tree
                 data={treeNodeToNodeDatum(props.node)}
                 pathFunc="step"
-                nodeSize={{ x: 60, y: 60 }}
-                separation={{ siblings: 0.5, nonSiblings: 0.8 }}
+                nodeSize={{x: 60, y: 60}}
+                separation={{siblings: 0.5, nonSiblings: 0.8}}
                 zoomable={false}
                 collapsible={false}
-                draggable={false}
-                translate={{ x: 200, y: 200 }}
+                draggable={true}
+                // translate={{x: 200, y: 200}}
             />
         </div>
-);
+    );
 }
 
 type Props = {

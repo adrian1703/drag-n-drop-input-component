@@ -1,9 +1,7 @@
 .treeContainer {
     margin: 0.5rem 0;
     font-family: monospace;
-    align-self: flex-start;
-    text-align: left;
-
+    height: 100%;
 }
 
 .treeContainer ul {
