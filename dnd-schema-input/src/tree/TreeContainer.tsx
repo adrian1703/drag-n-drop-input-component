@@ -1,8 +1,9 @@
 import log from "loglevel";
 import {TreeNode} from "./TreeNode.ts";
 import {useEffect, useState} from "react";
-import {TreeRendererComponent} from "./TreeRendererComponent.tsx";
+import {TreeRendererListComponent} from "./TreeRendererListComponent.tsx";
 import styles from "./TreeContainer.module.css";
+import {TreeRendererD3Component} from "./TreeRendererD3Component.tsx";
 
 export function TreeContainer() {
 
@@ -26,12 +27,12 @@ export function TreeContainer() {
 
     return (
         <>
-            <h1>hello</h1>
-            <button onClick={() => handleButtonClick(true)}>Increment </button>
+            <button onClick={() => handleButtonClick(true)}>Increment</button>
             <button onClick={() => handleButtonClick(false)}>Decrement</button>
             <div className={styles.treeContainer}>
-                {rootNode && <TreeRendererComponent node={rootNode}/>}
+                {rootNode && <TreeRendererListComponent node={rootNode}/>}
             </div>
+            {rootNode && <TreeRendererD3Component node={rootNode}/>}
         </>
     )
 }

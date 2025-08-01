@@ -9,14 +9,14 @@ function renderChildren(node: TreeNode) {
         <>
             {node.children.map(child => (
                 <ul>
-                    <TreeRendererComponent key={child.id} node={child}/>
+                    <TreeRendererListComponent key={child.id} node={child}/>
                 </ul>
             ))}
         </>
     )
 }
 
-export function TreeRendererComponent(props: Props){
+export function TreeRendererListComponent(props: Props){
     return (
         <li>
             {props.node.label}
