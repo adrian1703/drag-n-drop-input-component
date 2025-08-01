@@ -25,12 +25,13 @@ export function TreeRendererD3Component(props: Props){
         }}>
             <Tree
                 data={treeNodeToNodeDatum(props.node)}
-                pathFunc="elbow"
+                pathFunc="step"
                 nodeSize={{ x: 60, y: 60 }}
                 separation={{ siblings: 0.5, nonSiblings: 0.8 }}
                 zoomable={false}
                 collapsible={false}
-                translate={{ x: 200, y: 300 }}
+                draggable={false}
+                translate={{ x: 200, y: 200 }}
             />
         </div>
 );
