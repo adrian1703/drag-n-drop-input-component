@@ -8,8 +8,8 @@ function renderChildren(node: TreeNode) {
     return (
         <>
             {node.children.map(child => (
-                <ul>
-                    <TreeRendererListComponent key={child.id} node={child}/>
+                <ul key={child.id}>
+                    <TreeRendererListComponent node={child}/>
                 </ul>
             ))}
         </>
