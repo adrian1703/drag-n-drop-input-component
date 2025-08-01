@@ -17,14 +17,25 @@ function treeNodeToNodeDatum(node: TreeNode): NodeDatum {
     };
 }
 
-type Props = {
-    node: TreeNode;
-}
-
 export function TreeRendererD3Component(props: Props){
     return (
-        <Tree
-            data={treeNodeToNodeDatum(props.node)}
-        />
-    );
+        <div style={{
+            height: "40vh",
+            width: "80vw",
+        }}>
+            <Tree
+                data={treeNodeToNodeDatum(props.node)}
+                pathFunc="elbow"
+                nodeSize={{ x: 60, y: 60 }}
+                separation={{ siblings: 0.5, nonSiblings: 0.8 }}
+                zoomable={false}
+                collapsible={false}
+                translate={{ x: 200, y: 300 }}
+            />
+        </div>
+);
+}
+
+type Props = {
+    node: TreeNode;
 }
