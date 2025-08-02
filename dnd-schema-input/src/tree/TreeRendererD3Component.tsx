@@ -20,16 +20,16 @@ function treeNodeToNodeDatum(node: TreeNode): NodeDatum {
 
 export function TreeRendererD3Component(props: Props) {
     return (
-        <div style={{width: "100%", height: "100%"}}>
+        <div style={{width: "100%", height: "calc(100% - 50px)"}}>
             <Tree
                 data={treeNodeToNodeDatum(props.node)}
                 pathFunc="step"
-                nodeSize={{x: 60, y: 60}}
+                nodeSize={{x: 50, y: 50}}
                 separation={{siblings: 1, nonSiblings: 1.2}}
                 zoomable={false}
                 collapsible={false}
                 draggable={false}
-                translate={{x: 200, y: 400}}
+                translate={{x: 200, y: 200}}
             />
         </div>
     );
