@@ -25,7 +25,7 @@ export function TreeRendererD3Component(props: Props) {
                 data={treeNodeToNodeDatum(props.node)}
                 pathFunc="step"
                 nodeSize={{x: 60, y: 60}}
-                separation={{siblings: 0.5, nonSiblings: 0.8}}
+                separation={{siblings: 1, nonSiblings: 1.2}}
                 zoomable={false}
                 collapsible={false}
                 draggable={false}
