@@ -20,7 +20,7 @@ function treeNodeToNodeDatum(node: TreeNode): NodeDatum {
 
 export function TreeRendererD3Component(props: Props) {
     return (
-        <div className={"treeContainer"} style={{width: '100%', height: '100%', minHeight: 400, minWidth: 400}}>
+        <div style={{width: "100%", height: "100%"}}>
             <Tree
                 data={treeNodeToNodeDatum(props.node)}
                 pathFunc="step"
@@ -28,8 +28,8 @@ export function TreeRendererD3Component(props: Props) {
                 separation={{siblings: 0.5, nonSiblings: 0.8}}
                 zoomable={false}
                 collapsible={false}
-                draggable={true}
-                // translate={{x: 200, y: 200}}
+                draggable={false}
+                translate={{x: 200, y: 400}}
             />
         </div>
     );
