@@ -18,6 +18,10 @@ function treeNodeToNodeDatum(node: TreeNode): NodeDatum {
     };
 }
 
+type Props = {
+    node: TreeNode;
+}
+
 export function TreeRendererD3Component(props: Props) {
     return (
         <div style={{width: "100%", height: "calc(100% - 50px)"}}>
@@ -33,8 +37,4 @@ export function TreeRendererD3Component(props: Props) {
             />
         </div>
     );
-}
-
-type Props = {
-    node: TreeNode;
 }

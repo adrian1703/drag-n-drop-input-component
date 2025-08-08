@@ -2,12 +2,15 @@ import log from "loglevel";
 import {TreeNode} from "./TreeNode.ts";
 import {useEffect, useState} from "react";
 import styles from "./TreeContainer.module.css";
-import {TreeRendererD3Component} from "./TreeRendererD3Component.tsx";
 
-export function TreeContainer() {
+type Props = {
+    RendererComponent: React.ComponentType<{ node: TreeNode }>;
+}
+
+export function TreeContainer(props: Props) {
 
     const [rootNode, setRootNode] = useState<TreeNode>()
-    const [count, setCount] = useState<number>(12)
+    const [count, setCount]       = useState<number>(12)
 
     useEffect(() => {
         const props = Array.from({length: count}, (_, index) => (index + 1).toString())
@@ -17,7 +20,7 @@ export function TreeContainer() {
     }, [count]);
 
     const handleButtonClick = (increment: boolean) => {
-        if(increment){
+        if (increment) {
             setCount(count + 1)
         } else {
             setCount(count - 1)
@@ -28,7 +31,7 @@ export function TreeContainer() {
         <div className={styles.treeContainer}>
             <button onClick={() => handleButtonClick(true)}>Increment</button>
             <button onClick={() => handleButtonClick(false)}>Decrement</button>
-            {rootNode && <TreeRendererD3Component node={rootNode}/>}
+            {rootNode && <props.RendererComponent node={rootNode}/>}
         </div>
     )
 }
